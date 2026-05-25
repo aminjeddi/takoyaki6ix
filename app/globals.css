@@ -37,7 +37,12 @@ body {
   to { transform: translateX(-50%); }
 }
 .marquee-track {
-  animation: marquee 40s linear infinite;
+  animation: marquee 18s linear infinite;
+}
+@media (min-width: 768px) {
+  .marquee-track {
+    animation-duration: 32s;
+  }
 }
 
 /* Floating bob */
