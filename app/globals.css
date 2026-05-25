@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+html, body {
+  background: #FBE9D2;
+  color: #B83A26;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+::selection {
+  background: #B83A26;
+  color: #FBE9D2;
+}
+
+.font-display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+/* Subtle marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+/* Floating bob */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.bob { animation: bob 5s ease-in-out infinite; }
+
+/* Underline link */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
